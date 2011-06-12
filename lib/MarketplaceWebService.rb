@@ -1,4 +1,4 @@
-module MarketplaceWebService
+class MarketplaceWebService
   require 'net/https'
   require 'time'
   require 'cgi'
