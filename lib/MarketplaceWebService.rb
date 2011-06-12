@@ -9,8 +9,6 @@ class MarketplaceWebService
   @@aws_host = "mws.amazonservices.com"
 
   def initialize(h = {})
-    puts "******* INITIALIZE"
-    puts h
     @merchant_id = h[:merchant_id]
     @marketplace_id = h[:marketplace_id]
     @credentials = h[:credentials]
