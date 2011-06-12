@@ -8,15 +8,10 @@ class MarketplaceWebService
   
   @@aws_host = "mws.amazonservices.com"
 
-  def initialize(merchant_id, marketplace_id)
+  def initialize(merchant_id, marketplace_id, credentials)
     @merchant_id = merchant_id
     @marketplace_id = marketplace_id
-    @credentials = load_credentials
-  end
-
-  def load_credentials(file)
-    # #{Rails.root}/config/mws.yml
-    YAML.load_file("#{file}")
+    @credentials = credentials
   end
   
   def get_report_list
