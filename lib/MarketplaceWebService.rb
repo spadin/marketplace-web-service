@@ -8,10 +8,10 @@ class MarketplaceWebService
   
   @@aws_host = "mws.amazonservices.com"
 
-  def initialize(merchant_id, marketplace_id, credentials)
-    @merchant_id = merchant_id
-    @marketplace_id = marketplace_id
-    @credentials = credentials
+  def initialize(h = {})
+    @merchant_id = h["merchant_id"]
+    @marketplace_id = h["marketplace_id"]
+    @credentials = h["credentials"]
   end
   
   def get_report_list
