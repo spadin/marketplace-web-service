@@ -9,9 +9,9 @@ class MarketplaceWebService
   @@aws_host = "mws.amazonservices.com"
 
   def initialize(h = {})
-    @merchant_id = h["merchant_id"]
-    @marketplace_id = h["marketplace_id"]
-    @credentials = h["credentials"]
+    @merchant_id = h[:merchant_id]
+    @marketplace_id = h[:marketplace_id]
+    @credentials = h[:credentials]
   end
   
   def get_report_list
@@ -53,7 +53,7 @@ class MarketplaceWebService
   def add_credentials!(params)
     params["MarketplaceIdList.Id.1"] = @marketplace_id
     params["Merchant"] = @merchant_id
-    params["AWSAccessKeyId"] = @credentials["access_key_id"]
+    params["AWSAccessKeyId"] = @credentials[:access_key_id]
   end
   
   def make_signature(params)
@@ -62,7 +62,7 @@ class MarketplaceWebService
     
     # create digest of concatenated params
     digest = OpenSSL::Digest::Digest.new('sha256')
-    hmac = OpenSSL::HMAC.digest(digest, @credentials["secret_key"], query)
+    hmac = OpenSSL::HMAC.digest(digest, @credentials[:secret_key], query)
     Base64.encode64(hmac).chomp
   end
   
