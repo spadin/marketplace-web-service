@@ -1,7 +1,7 @@
 # Provide a simple gemspec so you can easily use your
 # project in your rails apps through git.
 Gem::Specification.new do |s|
-  s.name = "MarketplaceWebService"
+  s.name = "marketplacewebservice"
   s.authors = "Sandro Padin"
   s.summary = "Amazon MWS simplified."
   s.description = "Amazon MWS simplified."
