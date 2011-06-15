@@ -27,19 +27,13 @@ class MarketplaceWebService
     doc = Nokogiri::XML(xml)
   end
   
-  def get_shipments_data
-    doc = get_report_list
-    report_id = doc.css("ReportType:contains('_GET_AMAZON_FULFILLED_SHIPMENTS_DATA_')").first.parent().css("ReportId").text
-
+  def get_report(report_id)
     query = build_query("GetReport", {
       ReportId: report_id
     })
 
     # Make request - this request returns a CSV document
-    csv = post query
-    
-    # Get test document.
-    # csv = File.open("#{Rails.root}/test/fixtures/orders.csv")
+    post query
   end
   
   def add_common!(params)
